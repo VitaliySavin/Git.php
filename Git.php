@@ -940,6 +940,17 @@ class GitRepo {
     {
         return $this->run("blame {$options} {$file}");
     }
+
+    /**
+     * Get find-merge
+     * @param $file
+     * @param string $options .
+     * @return string
+     */
+    public function findMerge($hash)
+    {
+        return $this->run_command("find-merge " . $hash);
+    }
 }
 
 /* End of file */
