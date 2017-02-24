@@ -943,13 +943,14 @@ class GitRepo {
 
     /**
      * Get result of execution git command rev-list
-     * @param string $hash
+     * @param string $startHash
+     * @param string $endHash
      * @param string $options .
      * @return string
      */
-    public function revList($hash, $options = '')
+    public function revList($startHash, $endHash = '', $options = '')
     {
-        return $this->run("rev-list {$options} {$hash}..");
+        return $this->run("rev-list {$options} {$startHash}..{$endHash}");
     }
 
 }
