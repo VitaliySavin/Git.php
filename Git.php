@@ -945,12 +945,15 @@ class GitRepo {
      * Get result of execution git command rev-list
      * @param string $startHash
      * @param string $endHash
-     * @param string $options .
+     * @param string $options
+     * @param bool $isTwoDotSeparated
      * @return string
      */
-    public function revList($startHash, $endHash = '', $options = '')
+    public function revList($startHash, $endHash = '', $options = '', $isTwoDotSeparated = true)
     {
-        return $this->run("rev-list {$options} {$startHash}..{$endHash}");
+        $dotSeparator = $isTwoDotSeparated ? '..' : '...';
+
+        return $this->run("rev-list {$options} {$startHash}{$dotSeparator}{$endHash}");
     }
 
 }
